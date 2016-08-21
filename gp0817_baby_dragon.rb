@@ -40,9 +40,9 @@ class Dragon
       when "water"
         puts "#{@name} drink happily for #{drink_amount} water!"
       when "coke"
-        puts "#{@name} loves #{drink_amount} sugary coke stuff."
+        puts "#{@name} loves #{drink_amount} sugary coke stuff. She is spitting bubbles!"
       when "vodka"
-        puts "#{@name} drink #{drink_amount} vodka and is breathing fire with it."
+        puts "#{@name} drink #{drink_amount} vodka and is breathing fire with it!"
       else
         # we should not reach here
         puts "#{@name} tastes new drink #{drink_type}"
@@ -54,7 +54,7 @@ class Dragon
 
   private # only samething in the same class can change it.
   def time_passed
-    @food_in_belly -= 20
+    @food_in_belly -= 8
     @food_in_intestine += 10
     @water_in_belly -= 7
     @water_in_bladder += 6
@@ -160,13 +160,12 @@ class Dragon
 end
 
 my_dragon = Dragon.new("Derek")
-my_dragon.feed(90)
-#my_dragon.walk
-# my_dragon.nap
-#my_dragon.play
+my_dragon.feed(20)
+my_dragon.walk
+my_dragon.nap
+my_dragon.play
+my_dragon.walk
 my_dragon.drink
 my_dragon.drink(9, "coke")
 my_dragon.drink(15, "vodka")
 my_dragon.drink(5, "coffee")
-my.dragon.walk
-my_dragon.drink

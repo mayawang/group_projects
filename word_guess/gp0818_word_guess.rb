@@ -52,7 +52,7 @@ class Hangman
         self.guess_letter(letter)
         # use self. refers to the object that currently called on(e.g. here is game.)
         # usually use when member method call another member method within the same class
-        # self. can be obmit in ruby.
+        # self. can be obmitted in ruby.
       else
         puts "That's not ONE LETTER!"
       end

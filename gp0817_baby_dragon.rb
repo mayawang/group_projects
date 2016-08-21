@@ -21,13 +21,32 @@ class Dragon
     time_passed
   end
 
-  def drink(drink_amount = 15)
+  def drink(drink_amount = 15, drink_type = "water")
+    known_drink_types = ["water", "coke", "vodka"]
+
+    unless known_drink_types.include?(drink_type)
+      puts "#{@name} looks at #{drink_type} and refuses to touch it"
+      status
+      time_passed
+      return
+    end
+
     @water_in_belly += drink_amount
     if @water_in_belly >= 100
       puts "#{@name} drank too much and spits up."
       @water_in_belly = 100
     else
-      puts "#{@name} drink happily for #{drink_amount} water!"
+      case drink_type
+      when "water"
+        puts "#{@name} drink happily for #{drink_amount} water!"
+      when "coke"
+        puts "#{@name} loves #{drink_amount} sugary coke stuff. She is spitting bubbles!"
+      when "vodka"
+        puts "#{@name} drink #{drink_amount} vodka and is breathing fire with it!"
+      else
+        # we should not reach here
+        puts "#{@name} tastes new drink #{drink_type}"
+      end
     end
     status
     time_passed
@@ -35,7 +54,7 @@ class Dragon
 
   private # only samething in the same class can change it.
   def time_passed
-    @food_in_belly -= 20
+    @food_in_belly -= 8
     @food_in_intestine += 10
     @water_in_belly -= 7
     @water_in_bladder += 6
@@ -141,11 +160,12 @@ class Dragon
 end
 
 my_dragon = Dragon.new("Derek")
-my_dragon.feed
+my_dragon.feed(20)
 my_dragon.walk
-# my_dragon.nap
+my_dragon.nap
 my_dragon.play
+my_dragon.walk
 my_dragon.drink
-my_dragon.drink
-my.dragon.walk
-my_dragon.drink
+my_dragon.drink(9, "coke")
+my_dragon.drink(15, "vodka")
+my_dragon.drink(5, "coffee")
